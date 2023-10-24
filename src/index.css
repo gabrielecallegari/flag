@@ -22,3 +22,7 @@ code {
 *{
   user-select: none;
 }
+
+.a{
+  background-color: #00000098;
+}
