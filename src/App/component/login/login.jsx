@@ -10,6 +10,7 @@ export default function Login(){
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [error, setError] = useState(false)
+    const [errorLabel, setErrorLabel] = useState("Errore! Email o Password errate")
 
     const nav = useNavigate()
 
@@ -24,6 +25,7 @@ export default function Login(){
             setPassword("")
         }else{
             setError(true)
+            setErrorLabel("Errore! Email o Password errate")
             setTimeout(() => {
                 setError(false)
             }, 3000);
@@ -31,6 +33,14 @@ export default function Login(){
     }
 
     const _handleSubmit = ()=>{
+        if(email.length < 4 || password.length < 7 ){
+            setError(true)
+            setErrorLabel("Errore! Email o Password troppo corte")
+            setTimeout(() => {
+                setError(false)
+            }, 3000);
+            return 
+        }
         setLoad(true)
         login(email,password,callback)
     }
@@ -45,7 +55,7 @@ export default function Login(){
                     <div className="md:w-1/2 sm:w-full h-full flex justify-center items-center" >
                         <div className="w-7/12 h-5/6 relative" >
                             <h1 className="text-4xl font-bold">Login</h1>
-                            <p className="w-[calc(50%)] text-black mt-4 text-2xl">Se non hai un account, <Link className="text-blue-500 border-b-2 border-blue-500" >Registrati ora!</Link> </p>
+                            <p className="w-[calc(50%)] text-black mt-4 text-2xl">Se non hai un account, <Link to={"/registration"} className="text-blue-500 border-b-2 border-blue-500" >Registrati ora!</Link> </p>
                             <div className="w-full flex flex-col mt-10">
                                 <label className="text-gray-400 text-sm font-semibold">Email</label>
                                 <div className="flex items-center mt-1 border-b-2 border-blue-500 ">
@@ -74,7 +84,7 @@ export default function Login(){
                             
                             {error === true && 
                                 <div className="w-full mt-4" >
-                                    <h2 className="text-red-700 text-xl font-semibold" >Errore! Email o Password errate</h2>
+                                    <h2 className="text-red-700 text-xl font-semibold" >{errorLabel}</h2>
                                 </div>
                             }
 
