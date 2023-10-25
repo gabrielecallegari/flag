@@ -7,10 +7,10 @@ export default function Header(){
     const path = useLocation()
 
     const _handlerClickProfile = () => {
-        if(path.pathname !== "/login") navigation("login")
+        navigation("/login")
     }
     const _handlerClickHome = () => {
-        if(path.pathname !== "/") navigation("/")
+        navigation("/")
     }
 
 
