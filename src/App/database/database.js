@@ -45,19 +45,19 @@ export function registration(email, password, callback){
 
 
 // ---------> Parte Stati <-----------
-/* Continenti:
-// 0 - Europa
-// 1 - America
-// 2 - Oceania
-// 3 - Asia
-// 4 - Africa
-*/
+
+//Continenti:
+//0 - Europa
+//1 - Asia
+//2 - America
+//3 - Africa
+//4 - Oceania
 
 export const states = [
     {
         stato: "Albania",
         capitale: "Tirana",
-        bandiera: require(""),
+        bandiera: require("../image/mail.png"),
         continente: 0,
         abitanti: 2877797,
         id: 0,
@@ -65,7 +65,7 @@ export const states = [
     {
         stato: "Andorra",
         capitale: "Andorra la Vella",
-        bandiera: require(""),
+        bandiera: require("../image/mail.png"),
         continente: 0,
         abitanti: 77265,
         id: 1,
@@ -73,7 +73,7 @@ export const states = [
     {
         stato: "Austria",
         capitale: "Vienna",
-        bandiera: require(""),
+        bandiera: require("../image/mail.png"),
         continente: 0,
         abitanti: 8902600,
         id: 2,
@@ -81,7 +81,7 @@ export const states = [
     {
         stato: "Belgio",
         capitale: "Bruxelles",
-        bandiera: require(""),
+        bandiera: require("../image/mail.png"),
         continente: 0,
         abitanti: 11631060,
         id: 3,
@@ -89,7 +89,7 @@ export const states = [
     {
         stato: "Bielorussia",
         capitale: "Minsk",
-        bandiera: require(""),
+        bandiera: require("../image/mail.png"),
         continente: 0,
         abitanti: 9349192,
         id: 4,
@@ -97,7 +97,7 @@ export const states = [
     {
         stato: "Bosnia Erzegovina",
         capitale: "Sarajevo",
-        bandiera: require(""),
+        bandiera: require("../image/mail.png"),
         continente: 0,
         abitanti: 3280819,
         id: 5,
@@ -105,7 +105,7 @@ export const states = [
     {
         stato: "Bulgaria",
         capitale: "Sofia",
-        bandiera: require(""),
+        bandiera: require("../image/mail.png"),
         continente: 0,
         abitanti: 6951482,
         id: 6,
@@ -113,7 +113,7 @@ export const states = [
     {
         stato: "Cipro",
         capitale: "Nicosia",
-        bandiera: require(""),
+        bandiera: require("../image/mail.png"),
         continente: 0,
         abitanti: 1207359,
         id: 7,
@@ -121,7 +121,7 @@ export const states = [
     {
         stato: "Croazia",
         capitale: "Zagabria",
-        bandiera: require(""),
+        bandiera: require("../image/mail.png"),
         continente: 0,
         abitanti: 4058165,
         id: 8,
@@ -129,7 +129,7 @@ export const states = [
     {
         stato: "Danimarca",
         capitale: "Copenaghen",
-        bandiera: require(""),
+        bandiera: require("../image/mail.png"),
         continente: 0,
         abitanti: 5857374,
         id: 9,
@@ -137,7 +137,7 @@ export const states = [
     {
         stato: "Estonia",
         capitale: "Tallin",
-        bandiera: require(""),
+        bandiera: require("../image/mail.png"),
         continente: 0,
         abitanti: 1326535,
         id: 10,
@@ -145,7 +145,7 @@ export const states = [
     {
         stato: "Finlandia",
         capitale: "Helsinki",
-        bandiera: require(""),
+        bandiera: require("../image/mail.png"),
         continente: 0,
         abitanti: 5540720,
         id: 11,
@@ -153,7 +153,7 @@ export const states = [
     {
         stato: "Francia",
         capitale: "Parigi",
-        bandiera: require(""),
+        bandiera: require("../image/mail.png"),
         continente: 0,
         abitanti: 67081000,
         id: 12,
@@ -161,7 +161,7 @@ export const states = [
     {
         stato: "Germania",
         capitale: "Berlino",
-        bandiera: require(""),
+        bandiera: require("../image/mail.png"),
         continente: 0,
         abitanti: 83166711,
         id: 13,
@@ -169,7 +169,7 @@ export const states = [
     {
         stato: "Grecia",
         capitale: "Atene",
-        bandiera: require(""),
+        bandiera: require("../image/mail.png"),
         continente: 0,
         abitanti: 10423054,
         id: 14,
@@ -177,7 +177,7 @@ export const states = [
     {
         stato: "Irlanda",
         capitale: "Dublino",
-        bandiera: require(""),
+        bandiera: require("../image/mail.png"),
         continente: 0,
         abitanti: 4937786,
         id: 15,
@@ -185,7 +185,7 @@ export const states = [
     {
         stato: "Islanda",
         capitale: "Reykjavik",
-        bandiera: require(""),
+        bandiera: require("../image/mail.png"),
         continente: 0,
         abitanti: 364260,
         id: 16,
@@ -193,7 +193,7 @@ export const states = [
     {
         stato: "Italia",
         capitale: "Roma",
-        bandiera: require(""),
+        bandiera: require("../image/mail.png"),
         continente: 0,
         abitanti: 60317116,
         id: 17,
@@ -201,7 +201,7 @@ export const states = [
     {
         stato: "Kosovo",
         capitale: "Pristina",
-        bandiera: require(""),
+        bandiera: require("../image/mail.png"),
         continente: 0,
         abitanti: 1808043,
         id: 18,
@@ -209,7 +209,7 @@ export const states = [
     {
         stato: "Lettonia",
         capitale: "Riga",
-        bandiera: require(""),
+        bandiera: require("../image/mail.png"),
         continente: 0,
         abitanti: 1864424,
         id: 19,
@@ -217,7 +217,7 @@ export const states = [
     {
         stato: "Liechtenstein",
         capitale: "Vaduz",
-        bandiera: require(""),
+        bandiera: require("../image/mail.png"),
         continente: 0,
         abitanti: 38574,
         id: 20,
@@ -225,7 +225,7 @@ export const states = [
     {
         stato: "Lituania",
         capitale: "Vilnius",
-        bandiera: require(""),
+        bandiera: require("../image/mail.png"),
         continente: 0,
         abitanti: 2722289,
         id: 21,
@@ -233,7 +233,7 @@ export const states = [
     {
         stato: "Lussemburgo",
         capitale: "Lussemburgo",
-        bandiera: require(""),
+        bandiera: require("../image/mail.png"),
         continente: 0,
         abitanti: 634730,
         id: 22,
@@ -241,7 +241,7 @@ export const states = [
     {
         stato: "Malta",
         capitale: "La Valletta",
-        bandiera: require(""),
+        bandiera: require("../image/mail.png"),
         continente: 0,
         abitanti: 442784,
         id: 23,
@@ -249,7 +249,7 @@ export const states = [
     {
         stato: "Moldavia",
         capitale: "Chisinau",
-        bandiera: require(""),
+        bandiera: require("../image/mail.png"),
         continente: 0,
         abitanti: 4027900,
         id: 24,
@@ -257,7 +257,7 @@ export const states = [
     {
         stato: "Monte Carlo",
         capitale: "Monaco",
-        bandiera: require(""),
+        bandiera: require("../image/mail.png"),
         continente: 0,
         abitanti: 38300,
         id: 25,
@@ -265,7 +265,7 @@ export const states = [
     {
         stato: "Montenegro",
         capitale: "Podgorica",
-        bandiera: require(""),
+        bandiera: require("../image/mail.png"),
         continente: 0,
         abitanti: 620029,
         id: 26,
@@ -273,7 +273,7 @@ export const states = [
     {
         stato: "Norvegia",
         capitale: "Oslo",
-        bandiera: require(""),
+        bandiera: require("../image/mail.png"),
         continente: 0,
         abitanti: 5464023,
         id: 27,
@@ -281,7 +281,7 @@ export const states = [
     {
         stato: "Paesi Bassi",
         capitale: "Amsterdam",
-        bandiera: require(""),
+        bandiera: require("../image/mail.png"),
         continente: 0,
         abitanti: 17474680,
         id: 28,
@@ -289,7 +289,7 @@ export const states = [
     {
         stato: "Polonia",
         capitale: "Varsavia",
-        bandiera: require(""),
+        bandiera: require("../image/mail.png"),
         continente: 0,
         abitanti: 38002396,
         id: 29,
@@ -297,7 +297,7 @@ export const states = [
     {
         stato: "Portogallo",
         capitale: "Lisbona",
-        bandiera: require(""),
+        bandiera: require("../image/mail.png"),
         continente: 0,
         abitanti: 10196709,
         id: 30,
@@ -305,7 +305,7 @@ export const states = [
     {
         stato: "Regno Unito",
         capitale: "Londra",
-        bandiera: require(""),
+        bandiera: require("../image/mail.png"),
         continente: 0,
         abitanti: 68207116,
         id: 31,
@@ -313,14 +313,14 @@ export const states = [
     {
         stato: "Repubblica Ceca",
         capitale: "Praga",
-        bandiera: require(""),
+        bandiera: require("../image/mail.png"),
         continente: 0,
         abitanti: 10708983,
         id: 32,
     },{
         stato: "Romania",
         capitale: "Bucarest",
-        bandiera: require(""),
+        bandiera: require("../image/mail.png"),
         continente: 0,
         abitanti: 19237691,
         id: 33,
@@ -328,7 +328,7 @@ export const states = [
     {
         stato: "Russia",
         capitale: "Mosca",
-        bandiera: require(""),
+        bandiera: require("../image/mail.png"),
         continente: 0,
         abitanti: 144373535,
         id: 34,
@@ -336,14 +336,14 @@ export const states = [
     {
         stato: "San Marino",
         capitale: "Città di San Marino",
-        bandiera: require(""),
+        bandiera: require("../image/mail.png"),
         continente: 34232,
         abitanti: 0,
         id: 35,
     },{
         stato: "Serbia",
         capitale: "Belgrado",
-        bandiera: require(""),
+        bandiera: require("../image/mail.png"),
         continente: 0,
         abitanti: 8737371,
         id: 36,
@@ -351,7 +351,7 @@ export const states = [
     {
         stato: "Slovacchia",
         capitale: "Bratislava",
-        bandiera: require(""),
+        bandiera: require("../image/mail.png"),
         continente: 0,
         abitanti: 5459642,
         id: 37,
@@ -359,14 +359,14 @@ export const states = [
     {
         stato: "Slovenia",
         capitale: "Lubiana",
-        bandiera: require(""),
+        bandiera: require("../image/mail.png"),
         continente: 0,
         abitanti: 2078938,
         id: 38,
     },{
         stato: "Svizzera",
         capitale: "Berna",
-        bandiera: require(""),
+        bandiera: require("../image/mail.png"),
         continente: 0,
         abitanti: 8631865,
         id: 39,
@@ -374,7 +374,7 @@ export const states = [
     {
         stato: "Spanga",
         capitale: "Madrid",
-        bandiera: require(""),
+        bandiera: require("../image/mail.png"),
         continente: 0,
         abitanti: 46754784,
         id: 40,
@@ -382,14 +382,14 @@ export const states = [
     {
         stato: "Svezia",
         capitale: "Stoccolma",
-        bandiera: require(""),
+        bandiera: require("../image/mail.png"),
         continente: 0,
         abitanti: 10438963,
         id: 41,
     },{
         stato: "Ucraina",
         capitale: "Kiev",
-        bandiera: require(""),
+        bandiera: require("../image/mail.png"),
         continente: 0,
         abitanti: 44419470,
         id: 42,
@@ -397,7 +397,7 @@ export const states = [
     {
         stato: "Ungheria",
         capitale: "Budapest",
-        bandiera: require(""),
+        bandiera: require("../image/mail.png"),
         continente: 0,
         abitanti: 9660351,
         id: 43,
@@ -405,7 +405,7 @@ export const states = [
     {
         stato: "Vaticano",
         capitale: "Città del Vaticano",
-        bandiera: require(""),
+        bandiera: require("../image/mail.png"),
         continente: 0,
         abitanti: 800,
         id: 44,
