@@ -1,5 +1,6 @@
 // ------> Parte Firebase <----------
 import { initializeApp } from "firebase/app";
+import { getFirestore, doc, setDoc } from "firebase/firestore"
 import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from "firebase/auth"
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -17,6 +18,16 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app)
+const db = getFirestore(app)
+
+
+async function nuovoDocumento(email,nickname){
+    await setDoc(doc(db, "users", email),{
+        nickname: nickname,
+        scoregf: 0,
+        scorehl: 0
+    })
+}
 
 export function login(email, password, callback){
     
@@ -31,9 +42,10 @@ export function login(email, password, callback){
     )
 }
 
-export function registration(email, password, callback){
+export function registration(email, password, nickname, callback){
     createUserWithEmailAndPassword(auth, email, password).then(
         (userCredential) => {
+            nuovoDocumento(email, nickname)
             callback(true, 0)
         }
     ).catch( 

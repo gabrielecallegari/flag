@@ -10,6 +10,7 @@ export default function Registration(){
     const [load, setLoad] = useState(false)
     const [email, setEmail] = useState("")
     const [confEmail, setConfEmail] = useState("")
+    const [nickname, setNickname] = useState("")
     const [password, setPassword] = useState("")
     const [confPassword, setConfPassword] = useState("")
     const [error, setError] = useState(false)
@@ -49,6 +50,14 @@ export default function Registration(){
             }, 3000)
             return
         }
+        if(nickname.length < 1){
+            setErrorText("Errore! Nickname non inserito")
+            setError(true)
+            setTimeout(()=>{
+                setError(false)
+            }, 3000)
+            return
+        }
         if(password !== confPassword){
             setErrorText("Errore! Le Password non concidono")
             setError(true)
@@ -66,7 +75,7 @@ export default function Registration(){
             return
         }
         setLoad(true)
-        registration(email, password, callback)
+        registration(email, password, nickname, callback)
     }
 
     
@@ -94,6 +103,13 @@ export default function Registration(){
                                 <div className="flex items-center mt-1 border-b-2 border-blue-500 ">
                                     <img  alt="mail" className="" src={require("../../image/mail.png")} />
                                     <input  type="email" placeholder="example@example.com" className="w-full ml-3 outline-none text-lg pr-1" onChange={(e) => setConfEmail(e.target.value) } />
+                                </div>
+                            </div>
+                            <div className="w-full flex flex-col mt-10">
+                                <label className="text-gray-400 text-sm font-semibold">Nickname</label>
+                                <div className="flex items-center mt-1 border-b-2 border-blue-500 ">
+                                    <img  alt="mail" className="" src={require("../../image/usericon.png")} />
+                                    <input  type="email" placeholder="Mariorossi321" className="w-full ml-3 outline-none text-lg pr-1" onChange={(e) => setNickname(e.target.value) } />
                                 </div>
                             </div>
                             <div className="w-full flex flex-col mt-10">
