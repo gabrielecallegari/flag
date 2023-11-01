@@ -34,9 +34,9 @@ export default function Home(){
                     modal && <Notify />
                 }
             </AnimatePresence>
-            <div className="flex w-full h-screen px-5 py-3" >
+            <div className="w-full h-screen px-5 py-3" >
 
-                <div className="w-full h-64 bg-slate-700  rounded-2xl relative" >
+                <div className="w-full h-64 bg-slate-700  rounded-2xl relative shadow-2xl" >
                     <div className="w-full flex justify-center items-center mt-2" >
                         <h2 className="font-semibold text-white text-2xl" >Higher or Lower</h2>
                     </div>
@@ -52,6 +52,22 @@ export default function Home(){
 
                     <div className="absolute bottom-3 left-0 right-0 flex justify-center items-center" >
                         <button className="bg-blue-500 text-2xl text-white px-10 py-2 rounded-xl" onClick={()=>navigation("/hl")} >Gioca ora</button>
+                    </div>
+                </div>
+
+                <div className="w-full h-64 bg-slate-700  rounded-2xl relative shadow-2xl mt-10" >
+                    <div className="w-full flex justify-center items-center mt-2" >
+                        <h2 className="font-semibold text-white text-2xl" >Guess the Flag</h2>
+                    </div>
+
+                    <div className="absolute top-0 left-0 bottom-0 right-0 flex justify-center items-center">
+                        <div className="px-3 py-3 bg-white rounded-full">
+                            <img alt="gf" src={require("../../image/gf.png")} className="w-16 h-16 rounded"/>
+                        </div>
+                    </div>
+
+                    <div className="absolute bottom-3 left-0 right-0 flex justify-center items-center" >
+                        <button className="bg-blue-500 text-2xl text-white px-10 py-2 rounded-xl" onClick={()=>navigation("/flag")} >Gioca ora</button>
                     </div>
                 </div>
                 
