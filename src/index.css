@@ -14,6 +14,11 @@ body {
   
 }
 
+::selection{
+  background: rgb(59 130 246);
+  color: white;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -21,4 +26,8 @@ code {
 
 *{
   user-select: none;
+}
+
+.a{
+  background-color: #00000098;
 }
