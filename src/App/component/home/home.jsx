@@ -4,7 +4,7 @@ import Footer from "../footer/footer";
 import { useState } from "react";
 import Notify from "./modal/notify";
 import { AnimatePresence } from "framer-motion";
-import { useNavigation } from "react-router-dom";
+//import { useNavigation } from "react-router-dom";
 import { useEffect } from "react";
 
 
@@ -12,7 +12,7 @@ import { useEffect } from "react";
 export default function Home(){
 
     const [modal, setModal] = useState(false)
-    const navigation = useNavigation()
+    //const navigation = useNavigation()
 
     useEffect(
         ()=>{
