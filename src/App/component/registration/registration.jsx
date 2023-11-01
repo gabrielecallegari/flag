@@ -24,6 +24,11 @@ export default function Registration(){
         console.log(message);
         if(value === true){
             nav("/")
+            window.setLogNotification = true
+            setEmail("")
+            setPassword("")
+            setConfPassword("")
+            setNickname("")
         }else{
             setErrorText("Errore! Email già registrata")
             setError(true)

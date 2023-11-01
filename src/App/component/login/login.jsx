@@ -21,6 +21,7 @@ export default function Login(){
         console.log(message);
         console.log(value);
         if(value === true){
+            window.setLogNotification = true
             nav("/")
             setEmail("")
             setPassword("")
