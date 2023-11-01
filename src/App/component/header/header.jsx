@@ -15,7 +15,7 @@ export default function Header(){
     
 
     return (
-        <div className="w-full h-12 bg-blue-500 shadow-xl flex absolute top-0 z-10" >
+        <div className="w-full h-12 bg-blue-500 shadow-xl flex sticky top-0 z-10" >
             <div className="absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center z-0 ">
                 <h1 className="text-2xl font-semibold cursor-pointer text-white  " onClick={()=>_handlerClickHome()} >GEONATION 🌍</h1>
             </div>
