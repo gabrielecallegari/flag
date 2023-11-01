@@ -61,7 +61,7 @@ export default function Login(){
 
                     <div className="px-3 w-full mt-2" >
                         <h1 className="text-5xl font-semibold">Login</h1>
-                        <p className="mt-6 text-xl">Se non sei ancora registrato <br/><Link to={"/registration"} className="text-2xl text-blue-500 border-b-2 border-blue-500">Clicca Qui</Link> </p>
+                        <p className="mt-6 text-xl">Se non sei ancora registrato <br/><Link to={"/registration"} className="text-2xl text-blue-500 border-b-2 border-blue-500">Clicca Qui!</Link> </p>
 
                         <div className="w-full mt-10">
                             <h2 className="text-lg text-gray-400" >Email</h2>
