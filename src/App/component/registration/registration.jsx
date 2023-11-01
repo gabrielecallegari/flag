@@ -4,12 +4,12 @@ import Loading from "../../loading/loading";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { registration } from "../../database/database";
+import Footer from "../footer/footer";
 
 export default function Registration(){
     
     const [load, setLoad] = useState(false)
     const [email, setEmail] = useState("")
-    const [confEmail, setConfEmail] = useState("")
     const [nickname, setNickname] = useState("")
     const [password, setPassword] = useState("")
     const [confPassword, setConfPassword] = useState("")
@@ -34,14 +34,6 @@ export default function Registration(){
     }
 
     const _handleSubmit = ()=>{
-        if(email !== confEmail){
-            setErrorText("Errore! Le Email non concidono")
-            setError(true)
-            setTimeout(()=>{
-                setError(false)
-            }, 3000)
-            return
-        }
         if(email.length < 3){
             setErrorText("Errore! Le Email è troppo corta")
             setError(true)
@@ -86,69 +78,58 @@ export default function Registration(){
             
             <div className="flex w-full h-screen">
                 
-                <div className="h-[calc(100%-48px)] w-full bg-white mt-12 flex py-3  ">
-                    <div className="md:w-1/2 sm:w-full h-full flex justify-center items-center" >
-                        <div className="w-7/12 h-5/6 relative" >
-                            <h1 className="text-4xl font-bold">Registrazione</h1>
-                            <p className="w-[calc(50%)] text-black mt-4 text-2xl">Se hai già un account, <Link to={"/login"} className="text-blue-500 border-b-2 border-blue-500" >Accedi!</Link> </p>
-                            <div className="w-full flex flex-col mt-10">
-                                <label className="text-gray-400 text-sm font-semibold">Email</label>
-                                <div className="flex items-center mt-1 border-b-2 border-blue-500 ">
-                                    <img  alt="mail" className="" src={require("../../image/mail.png")} />
-                                    <input  type="email" placeholder="example@example.com" className="w-full ml-3 outline-none text-lg pr-1" onChange={(e) => setEmail(e.target.value) } />
-                                </div>
-                            </div>
-                            <div className="w-full flex flex-col mt-10">
-                                <label className="text-gray-400 text-sm font-semibold">Conferma Email</label>
-                                <div className="flex items-center mt-1 border-b-2 border-blue-500 ">
-                                    <img  alt="mail" className="" src={require("../../image/mail.png")} />
-                                    <input  type="email" placeholder="example@example.com" className="w-full ml-3 outline-none text-lg pr-1" onChange={(e) => setConfEmail(e.target.value) } />
-                                </div>
-                            </div>
-                            <div className="w-full flex flex-col mt-10">
-                                <label className="text-gray-400 text-sm font-semibold">Nickname</label>
-                                <div className="flex items-center mt-1 border-b-2 border-blue-500 ">
-                                    <img  alt="mail" className="" src={require("../../image/usericon.png")} />
-                                    <input  type="email" placeholder="Mariorossi321" className="w-full ml-3 outline-none text-lg pr-1" onChange={(e) => setNickname(e.target.value) } />
-                                </div>
-                            </div>
-                            <div className="w-full flex flex-col mt-10">
-                                <label className="text-gray-400 text-sm font-semibold">Password</label>
-                                <div className="flex items-center mt-1 border-b-2 border-blue-500 ">
-                                    <img  alt="mail" className="" src={require("../../image/password.png")} />
-                                    <input placeholder="lunghezza minima di 8 caratteri" type="password" className="w-full ml-3 outline-none text-lg pr-1 " onChange={(e) => setPassword(e.target.value) } />
-                                </div>
-                            </div>
-                            <div className="w-full flex flex-col mt-10">
-                                <label className="text-gray-400 text-sm font-semibold">Conferma Password</label>
-                                <div className="flex items-center mt-1 border-b-2 border-blue-500 ">
-                                    <img  alt="mail" className="" src={require("../../image/password.png")} />
-                                    <input  type="password" className="w-full ml-3 outline-none text-lg pr-1 " onChange={(e) => setConfPassword(e.target.value) } />
-                                </div>
-                            </div>
-
-                            <button onClick={_handleSubmit} className="w-full mt-7 py-2 text-white font-semibold cursor-pointer shadow-2xl text-2xl rounded-xl bg-blue-500">Registrami</button>
-                            
-                            {error === true && 
-                                <div className="w-full mt-4" >
-                                    <h2 className="text-red-700 text-xl font-semibold" >{errorText}</h2>
-                                </div>
-                            }
-
-                            {load && 
-                                <Loading />
-                            }
+                <div className="h-[calc(100%-48px)] w-full bg-white mt-12 px-3 py-3  ">
+                    <div className="w-full mt-2">
+                        <h1 className="text-5xl font-semibold">Registrazione</h1>
+                        <p className="mt-6 text-xl">Se possiedi già un account,<br/><Link to={"/login"} className="text-2xl text-blue-500 border-b-2 border-blue-500">Clicca Qui!</Link></p>
+                    </div>
+                    
+                    <div className="w-full mt-10">
+                        <h2 className="text-lg text-gray-400" >Email</h2>
+                        <div className="flex w-full mt-1 items-center border-b-2 border-blue-500">
+                            <img alt="iconemail" src={require("../../image/mail.png")}/>
+                            <input type="email" placeholder="example@example.com" onChange={(e)=>setEmail(e.target.value)} className="w-full outline-none pl-2 text-xl" />
                         </div>
                     </div>
-                    {window.screen.width > 425 && 
-                        <div className="w-1/2 h-full  px-5" >
-                            <img alt="logo" src={require("../../image/sfondo.png")} className="h-full w-full  rounded-2xl "/>
+                    <div className="w-full mt-10">
+                        <h2 className="text-lg text-gray-400" >Nickname</h2>
+                        <div className="flex w-full mt-1 items-center border-b-2 border-blue-500">
+                            <img alt="iconemail" src={require("../../image/usericon.png")}/>
+                            <input type="email" placeholder="Example123" onChange={(e)=>setNickname(e.target.value)} className="w-full outline-none pl-2 text-xl" />
+                        </div>
+                    </div>
+                    <div className="w-full mt-10">
+                        <h2 className="text-lg text-gray-400" >Password</h2>
+                        <div className="flex w-full mt-1 items-center border-b-2 border-blue-500">
+                            <img alt="iconpassword" src={require("../../image/password.png")}/>
+                            <input type="password" placeholder="Yourpassword123!" onChange={(e)=>setPassword(e.target.value)} className="w-full outline-none pl-2 text-xl" />
+                        </div>
+                    </div>
+                    <div className="w-full mt-10">
+                        <h2 className="text-lg text-gray-400" >Conferma Password</h2>
+                        <div className="flex w-full mt-1 items-center border-b-2 border-blue-500">
+                            <img alt="iconpassword" src={require("../../image/password.png")}/>
+                            <input type="password" placeholder="Yourpassword123!" onChange={(e)=>setConfPassword(e.target.value)} className="w-full outline-none pl-2 text-xl" />
+                        </div>
+                    </div>
+                    {error &&
+                        <div className="w-full mt-3">
+                            <h2 className="text-xl text-red-500">{errorText}</h2>
                         </div>
                     }
-                    
+                    {
+                        load && 
+                        <Loading />
+                    }
+
+                    <div className="w-full justify-center items-center flex mt-10" >
+                        <button type="button" onClick={_handleSubmit}  className="px-20 py-3 rounded-lg text-2xl text-white font-semibold bg-blue-500 active:bg-blue-300 shadow-xl ">Registrami</button>
+                    </div>
 
                 </div>
+                
             </div>
+            <Footer />
         </div>
     )
 }
