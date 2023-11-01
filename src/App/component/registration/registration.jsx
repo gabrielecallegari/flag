@@ -83,7 +83,7 @@ export default function Registration(){
             
             <div className="flex w-full h-screen">
                 
-                <div className="h-[calc(100%-48px)] w-full bg-white mt-12 px-3 py-3  ">
+                <div className="h-full w-full bg-white px-3 py-3  ">
                     <div className="w-full mt-2">
                         <h1 className="text-5xl font-semibold">Registrazione</h1>
                         <p className="mt-6 text-xl">Se possiedi già un account,<br/><Link to={"/login"} className="text-2xl text-blue-500 border-b-2 border-blue-500">Clicca Qui!</Link></p>

@@ -53,7 +53,7 @@ export default function Login(){
 
             <div className="flex w-full h-screen">
                 
-                <div className="h-[calc(100%-48px)] w-full bg-white mt-12 flex py-3  ">
+                <div className="h-full w-full bg-white  flex py-3  ">
 
                     {
                         load && 
