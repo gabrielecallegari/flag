@@ -4,6 +4,8 @@ import Home from "../component/home/home";
 import Login from "../component/login/login";
 import Registration from "../component/registration/registration";
 import Profile from "../component/profile/profile";
+import Flag from "../component/game/flag";
+import Hl from "../component/game/hl";
 
 
 
@@ -23,6 +25,14 @@ const router = createBrowserRouter([
     {
         path: "profile",
         element: <Profile />
+    },
+    {
+        path: "flag",
+        element: <Flag />
+    },
+    {
+        path: "hl",
+        element: <Hl />
     }
     
 ])
