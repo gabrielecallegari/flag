@@ -418,7 +418,7 @@ export const states = [
         stato: "Vaticano",
         capitale: "Città del Vaticano",
         bandiera: require("../image/flag/vaticano.png"),
-        continente: 0,
+        continente: 800,
         abitanti: 800,
         id: 44,
     },

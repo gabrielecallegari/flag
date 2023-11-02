@@ -28,7 +28,7 @@ export default function Notify(){
 
     return (
         <div className="w-full absolute top-12 left-0 right-0 flex items-center justify-center z-10">
-            <motion.div variants={animazione} initial="hidden" animate="visible" exit="exit" className="bg-slate-500 mt-5 px-10 py-5 rounded-lg" >
+            <motion.div variants={animazione} initial="hidden" animate="visible" exit="exit" className="bg-blue-800 mt-5 px-10 py-5 rounded-lg" >
                 <label className="text-2xl text-white">Sei Loggato ✅</label>
             </motion.div>
         </div>
