@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { states } from "../../database/database";
 import { AnimatePresence, motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 
 export default function Hl(){
@@ -13,17 +14,23 @@ export default function Hl(){
     const [score, setScore] = useState(0)
     // eslint-disable-next-line 
     const [highScore, setHighScore] = useState(0)
+    const nav = useNavigate()
 
     //animation
     const [result, setResult] = useState(false)
     const [result2, setResult2] = useState(false)
 
     const [right, setRight] = useState(false)
+    const [err, setErr] = useState(false)
     
 
     const _handleClick = (num) => {
+        let er = false
         if((num === 0 && state2.abitanti >= state1.abitanti) || (num === 1 && state1.abitanti > state2.abitanti)){
             setRight(true)
+        }else{
+            setErr(true)
+            er = true
         }
         setResult(true)
 
@@ -33,6 +40,9 @@ export default function Hl(){
 
         setTimeout(()=>{
             setResult2(false)
+            if(er === true){
+                nav("/endgame/"+score)
+            }
             st = stati
             st = st.filter( el => el.id !== state1.id)
             if(num === 0 && state2.abitanti >= state1.abitanti){
@@ -54,6 +64,7 @@ export default function Hl(){
             setTimeout(()=>{
                 setResult(false)
                 setRight(false)
+                setErr(false)
             },300)
         },2000)
 
@@ -111,12 +122,38 @@ export default function Hl(){
                                 </motion.div>
                             </div>
                         }
+
+                        {   
+                            err && 
+                            <div className="w-full h-8 absolute -top-2 left-0 right-0 bottom-0  z-10 flex justify-center items-center">
+                                <motion.div
+                                initial={{y: "100px", opacity: 0}}
+                                transition={{
+                                    transition: {
+                                        duration: 0.3
+                                    }
+
+                                }}
+                                animate = {{opacity: 1,y: "0px",}}
+                                exit={{
+                                    opacity: 0,
+                                    y: "-100px",
+                                    transition: {
+                                        duration: 0.3
+                                    }
+                                }}
+                                className="bg-red-500 rounded-full p-5 w-20 flex justify-center items-center "
+                                >
+                                    <img alt="check" src={require("../../image/x.png")} className="w-full h-full" />
+                                </motion.div>
+                            </div>
+                        }
                     </AnimatePresence>
             </div>
             
             <div className="w-full h-[calc(49%)] flex justify-center items-center relative">
                 <img className="w-40 h-40" alt="img" src={state2.bandiera} />
-                <div className="absolute top-0 bottom-0 left-0 right-0" style={{backgroundColor: "#00000098"}} >
+                <div className="absolute top-0 bottom-0 left-0 right-0 " style={{backgroundColor: "#00000098"}} >
                     <AnimatePresence initial={false} mode="wait" onExitComplete={()=>null}>
                     {!result && 
                         
