@@ -6,6 +6,7 @@ import Registration from "../component/registration/registration";
 import Profile from "../component/profile/profile";
 import Flag from "../component/game/flag";
 import Hl from "../component/game/hl";
+import Endgame from "../component/game/endgame/endgame";
 
 
 
@@ -32,7 +33,11 @@ const router = createBrowserRouter([
     },
     {
         path: "hl",
-        element: <Hl />
+        element: <Hl />,
+    },
+    {
+        path: "endgame/:total",
+        element: <Endgame />,
     }
     
 ])
