@@ -12,6 +12,7 @@ import { useEffect } from "react";
 export default function Home(){
 
     const [modal, setModal] = useState(false)
+    const [message, setMessage] = useState("")
     const navigation = useNavigate()
 
     const animazione = {
@@ -33,6 +34,7 @@ export default function Home(){
         ()=>{
             if(window.setLogNotification === true){
                 setModal(true)
+                setMessage(window.getMessage)
                 setTimeout(()=>{
                     window.setLogNotification = false
                     setModal(false)
@@ -46,7 +48,7 @@ export default function Home(){
             <Header/>
             <AnimatePresence initial={false} mode="wait" onExitComplete={()=>null} >
                 {
-                    modal && <Notify />
+                    modal && <Notify message={message} />
                 }
             </AnimatePresence>
             <div className="w-full h-screen px-5 py-3" >
