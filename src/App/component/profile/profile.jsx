@@ -1,7 +1,11 @@
 import React from "react";
+import Header from "../header/header";
 
 export default function Profile(){
-    <div>
-        profile
-    </div>
+    return (
+        <div className="w-full h-screen bg-red-500" >
+            <Header />
+            profile
+        </div>
+    )
 }
