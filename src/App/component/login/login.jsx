@@ -39,7 +39,12 @@ export default function Login(){
     }
 
     const cookieSet = (oggetto)=>{
-        setCookie('user',oggetto)
+        const current = new Date();
+        const nextYear = new Date();
+        nextYear.setFullYear(current.getFullYear() + 100);
+        setCookie('user',oggetto,{
+            expires: nextYear
+        })
         console.log(oggetto);
     }
 

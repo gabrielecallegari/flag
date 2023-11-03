@@ -76,11 +76,16 @@ export default function Registration(){
             return
         }
         setLoad(true)
+        const current = new Date();
+        const nextYear = new Date();
+        nextYear.setFullYear(current.getFullYear() + 100);
         setCookie('user',{
             email: email,
             nickname: nickname,
             scoregf: 0,
             scorehl: 0
+        },{
+            expires: nextYear
         })
         registration(email.toLocaleLowerCase(), password, nickname, callback)
         

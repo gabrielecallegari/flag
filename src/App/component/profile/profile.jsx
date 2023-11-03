@@ -32,17 +32,15 @@ export default function Profile(){
 
             <div className="w-full py-2 px-3" >
                 <div className="w-full bg-white z-10">
-                    <h1 className="text-4xl font-semibold">Bentornato, <br/>{cookies.user.nickname}</h1>
+                    <h1 className="text-2xl font-semibold">Bentornato, <br/><label className="text-4xl font-bold">{cookies.user.nickname}</label></h1>
                 </div>
 
                 <motion.div className=" w-full bg-slate-700  rounded-xl mt-5 py-1 px-3"
                 initial={{opacity: 0, y: "-50px"}}
                 animate={{opacity: 1, y: "0"}}
                 transition={{
-                    transition: {
-                        duration: 0.5,
-                        ease: "easeIn"
-                    }
+                    duration: 0.3,
+                    ease: "easeIn"
                 }}
                 >
                     <h2 className="text-white text-xl font-semibold" >Il tuo record in <br/><label className="text-white text-2xl font-semibold">"Higher or Lower"</label></h2>
@@ -57,10 +55,8 @@ export default function Profile(){
                     initial={{opacity: 0, y: "-50px"}}
                     animate={{opacity: 1, y: "0"}}
                     transition={{
-                        transition: {
-                            duration: 1.5,
-                            ease: "easeIn"
-                        }
+                        duration: 0.3,
+                        ease: "easeIn"
                     }}
                     >
                         <h2 className="text-white text-xl font-semibold" >Il tuo record in <br/><label className="text-white text-2xl font-semibold">"Guess the Flag"</label></h2>
