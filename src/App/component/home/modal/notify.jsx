@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import React from "react";
 
-export default function Notify(){
+export default function Notify({message}){
     const animazione = {
         hidden: {
             y: "-100vh",
@@ -29,7 +29,7 @@ export default function Notify(){
     return (
         <div className="w-full absolute top-12 left-0 right-0 flex items-center justify-center z-10">
             <motion.div variants={animazione} initial="hidden" animate="visible" exit="exit" className="bg-blue-800 mt-5 px-10 py-5 rounded-lg" >
-                <label className="text-2xl text-white">Sei Loggato ✅</label>
+                <label className="text-2xl text-white">{message} ✅</label>
             </motion.div>
         </div>
     )

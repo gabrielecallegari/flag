@@ -28,6 +28,7 @@ export default function Registration(){
         if(value === true){
             nav("/")
             window.setLogNotification = true
+            window.getMessage = "Log In effettuato"
             setEmail("")
             setPassword("")
             setConfPassword("")
