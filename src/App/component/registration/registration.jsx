@@ -82,7 +82,7 @@ export default function Registration(){
             scoregf: 0,
             scorehl: 0
         })
-        registration(email, password, nickname, callback)
+        registration(email.toLocaleLowerCase(), password, nickname, callback)
         
     }
 
