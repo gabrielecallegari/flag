@@ -53,7 +53,7 @@ export default function Login(){
             return 
         }
         setLoad(true)
-        login(email,password,callback, cookieSet)
+        login(email.toLocaleLowerCase(),password,callback, cookieSet)
     }
 
     return (
