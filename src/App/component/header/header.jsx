@@ -29,7 +29,7 @@ export default function Header(){
                 <h1 className="text-2xl font-semibold cursor-pointer text-white  " onClick={()=>_handlerClickHome()} >GEONATION 🌍</h1>
             </div>
 
-            <div className="flex absolute top-1 right-3 bottom-1 bg-white hover:bg-slate-300 duration-300 ease-in-out p-2 rounded-full cursor-pointer "  onClick={()=>_handlerClickProfile()} >
+            <div className="flex absolute top-1 right-3 bottom-1 bg-white active:bg-slate-300 duration-300 ease-in-out p-2 rounded-full cursor-pointer "  onClick={()=>_handlerClickProfile()} >
                 <img alt="icon" src={require("../../image/user.png")} className="h-full w-6" />
             </div>
         </div>

@@ -1,6 +1,6 @@
 // ------> Parte Firebase <----------
 import { initializeApp } from "firebase/app";
-import { getFirestore, doc, setDoc, getDoc } from "firebase/firestore"
+import { getFirestore, doc, setDoc, getDoc, updateDoc } from "firebase/firestore"
 import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from "firebase/auth"
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -47,6 +47,13 @@ export function login(email, password, callback, cookieSet){
             callback(false, error.message)
         }
     )
+}
+
+export async function updateHl(email, score){
+    const update = doc(db, "users",email)
+    await updateDoc(update, {
+        scorehl: score
+    })
 }
 
 export function registration(email, password, nickname, callback){
@@ -356,8 +363,8 @@ export const states = [
         stato: "San Marino",
         capitale: "Città di San Marino",
         bandiera: require("../image/flag/sanmarino.png"),
-        continente: 34232,
-        abitanti: 0,
+        continente: 0,
+        abitanti: 34232,
         id: 35,
     },{
         stato: "Serbia",

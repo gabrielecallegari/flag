@@ -1,8 +1,13 @@
 import React from "react";
+
 import { useNavigate, useParams } from "react-router-dom";
+
 
 export default function Endgame(){
     const {total} =useParams()
+    // eslint-disable-next-line
+    
+
     const nav = useNavigate()
     return (
         <div className="w-full flex justify-center items-center relative bg-blue-500 " style={{height: window.innerHeight}}>
@@ -46,9 +51,14 @@ export default function Endgame(){
 
             </div>
 
-            <div className="absolute bottom-3 left-3 right-3 flex justify-around">
-                <button className="px-5 py-2 border-2 border-white rounded-xl text-white text-xl font-semibold" onClick={()=> nav(-1) } >Gioca di nuovo</button>
-                <button className="px-5 py-2 border-2 border-white rounded-xl text-white text-xl font-semibold" onClick={()=> nav("/") }>Vai alla Home</button>
+            <div className="absolute bottom-3 left-3 right-3">
+                <div className="w-full flex justify-center items-center mb-10" >
+                    <h3 className="text-2xl text-white font-semibold" >Il tuo score: {total}</h3>
+                </div>
+                <div className="w-full flex justify-around">
+                    <button className="px-5 py-2 border-2 border-white rounded-xl text-white text-xl font-semibold" onClick={()=> nav(-1) } >Gioca di nuovo</button>
+                    <button className="px-5 py-2 border-2 border-white rounded-xl text-white text-xl font-semibold" onClick={()=> nav("/") }>Vai alla Home</button>
+                </div>
             </div>
         </div>
     )

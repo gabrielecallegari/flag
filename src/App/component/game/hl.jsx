@@ -1,8 +1,9 @@
 import React from "react";
 import { useState } from "react";
-import { states } from "../../database/database";
+import { states, updateHl } from "../../database/database";
 import { AnimatePresence, motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { useCookies } from "react-cookie";
 
 
 export default function Hl(){
@@ -13,8 +14,13 @@ export default function Hl(){
     const [state2, setState2] = useState(st[Math.floor(Math.random() * st.length)])
     const [score, setScore] = useState(0)
     // eslint-disable-next-line 
-    const [highScore, setHighScore] = useState(0)
+    const [cookies, setCookies] = useCookies(['user'])
+    // eslint-disable-next-line
+    const [highScore, setHighScore] = useState(cookies.user.scorehl)
     const nav = useNavigate()
+    
+    
+    
 
     //animation
     const [result, setResult] = useState(false)
@@ -42,6 +48,15 @@ export default function Hl(){
             setResult2(false)
             if(er === true){
                 nav("/endgame/"+score)
+                // eslint-disable-next-line
+                if(score > cookies.user.scorehl){
+                    console.log("qui");
+                    let obj = {...cookies.user}
+                    obj.scorehl = score
+                    console.log(obj);
+                    setCookies('user', obj)
+                    updateHl(cookies.user.email, score)
+                }
             }
             st = stati
             st = st.filter( el => el.id !== state1.id)
@@ -129,18 +144,13 @@ export default function Hl(){
                                 <motion.div
                                 initial={{y: "100px", opacity: 0}}
                                 transition={{
-                                    transition: {
-                                        duration: 0.3
-                                    }
-
+                                    duration: 0.3
                                 }}
                                 animate = {{opacity: 1,y: "0px",}}
                                 exit={{
                                     opacity: 0,
                                     y: "-100px",
-                                    transition: {
-                                        duration: 0.3
-                                    }
+                                    duration: 0.3
                                 }}
                                 className="bg-red-500 rounded-full p-5 w-20 flex justify-center items-center "
                                 >
@@ -162,16 +172,9 @@ export default function Hl(){
                             animate={{ opacity: 1, scale: 1 }}
 
                             transition={{
-                                transition: {
-                                    duration: 2,
-                                    ease: [0, 0.71, 0.2, 1.01],
-                                    scale: {
-                                        type: "spring",
-                                        damping: 5,
-                                        stiffness: 100,
-                                        restDelta: 0.001
-                                    }
-                                }
+                                duration: 1,
+                                ease: [0, 0.71, 0.2, 1.01],
+                                
                             }}
                             exit={{
                                 opacity: 0,
@@ -199,16 +202,9 @@ export default function Hl(){
                             animate={{ opacity: 1, scale: 1 }}
 
                             transition={{
-                                transition: {
-                                    duration: 2,
-                                    ease: [0, 0.71, 0.2, 1.01],
-                                    scale: {
-                                    type: "spring",
-                                    damping: 5,
-                                    stiffness: 100,
-                                    restDelta: 0.001
-                                    }
-                                }
+                                duration: 1,
+                                ease: [0, 0.71, 0.2, 1.01],
+                                
                             }}
                             exit={{
                                 opacity: 0,
