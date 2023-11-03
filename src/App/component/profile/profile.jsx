@@ -32,7 +32,13 @@ export default function Profile(){
 
             <div className="w-full py-2 px-3" >
                 <div className="w-full bg-white z-10">
-                    <h1 className="text-2xl font-semibold">Bentornato, <br/><label className="text-4xl font-bold">{cookies.user.nickname}</label></h1>
+                    <h1 className="text-2xl font-semibold">Bentornato, <br/> </h1>
+                    <div className="w-full flex items-center">
+                        <label  className="text-4xl font-semibold">{cookies.user.nickname}</label>
+                        <div className="flex h-10 w-10 justify-center items-center rounded-full border-2 border-blue-500 ml-4">
+                            <img src={require("../../image/mod.png")} alt="chg" className="h-5 w-5" />
+                        </div>
+                    </div>
                 </div>
 
                 <motion.div className=" w-full bg-slate-700  rounded-xl mt-5 py-1 px-3"
