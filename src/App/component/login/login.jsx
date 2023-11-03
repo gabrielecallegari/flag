@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Loading from "../../loading/loading";
 import { login } from "../../database/database";
 import Footer from "../footer/footer";
+import { useCookies } from "react-cookie";
 
 export default function Login(){
 
@@ -12,6 +13,8 @@ export default function Login(){
     const [password, setPassword] = useState("")
     const [error, setError] = useState(false)
     const [errorLabel, setErrorLabel] = useState("Errore! Email o Password errate")
+    // eslint-disable-next-line 
+    const [cookies, setCookie] = useCookies(['user'])
 
     const nav = useNavigate()
 
@@ -34,6 +37,11 @@ export default function Login(){
         }
     }
 
+    const cookieSet = (oggetto)=>{
+        setCookie('user',oggetto)
+        console.log(oggetto);
+    }
+
     const _handleSubmit = ()=>{
         if(email.length < 4 || password.length < 7 ){
             setError(true)
@@ -44,7 +52,7 @@ export default function Login(){
             return 
         }
         setLoad(true)
-        login(email,password,callback)
+        login(email,password,callback, cookieSet)
     }
 
     return (

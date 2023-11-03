@@ -1,6 +1,6 @@
 // ------> Parte Firebase <----------
 import { initializeApp } from "firebase/app";
-import { getFirestore, doc, setDoc } from "firebase/firestore"
+import { getFirestore, doc, setDoc, getDoc } from "firebase/firestore"
 import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from "firebase/auth"
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -21,8 +21,6 @@ const auth = getAuth(app)
 const db = getFirestore(app)
 
 
-
-
 async function nuovoDocumento(email,nickname){
     await setDoc(doc(db, "users", email),{
         nickname: nickname,
@@ -31,11 +29,18 @@ async function nuovoDocumento(email,nickname){
     })
 }
 
-export function login(email, password, callback){
+async function ottineiDocumento(email, cookieSet){
+    const docRef = doc(db, "users", email)
+    const docSnap = await getDoc(docRef)
+    cookieSet({...docSnap.data(),email: email})
+}
+
+export function login(email, password, callback, cookieSet){
     
     signInWithEmailAndPassword(auth, email, password).then(
         (userCredential) => {
             callback(true, "autenticazione avvenuta")
+            ottineiDocumento(email, cookieSet)
         }
     ).catch(
         (error) => {
