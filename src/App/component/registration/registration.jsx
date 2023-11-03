@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { registration } from "../../database/database";
 import Footer from "../footer/footer";
+import { useCookies } from "react-cookie";
 
 export default function Registration(){
     
@@ -15,6 +16,8 @@ export default function Registration(){
     const [confPassword, setConfPassword] = useState("")
     const [error, setError] = useState(false)
     const [errorText, setErrorText] = useState("")
+    // eslint-disable-next-line
+    const [cookie, setCookie] = useCookies(['user'])
 
     const nav = useNavigate()
 
@@ -72,7 +75,14 @@ export default function Registration(){
             return
         }
         setLoad(true)
+        setCookie('user',{
+            email: email,
+            nickname: nickname,
+            scoregf: 0,
+            scorehl: 0
+        })
         registration(email, password, nickname, callback)
+        
     }
 
     

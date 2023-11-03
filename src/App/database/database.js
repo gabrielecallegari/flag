@@ -21,6 +21,8 @@ const auth = getAuth(app)
 const db = getFirestore(app)
 
 
+
+
 async function nuovoDocumento(email,nickname){
     await setDoc(doc(db, "users", email),{
         nickname: nickname,

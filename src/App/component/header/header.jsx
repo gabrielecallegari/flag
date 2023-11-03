@@ -1,12 +1,21 @@
 import React from "react";
+import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
 
 export default function Header(){
     
     const navigation = useNavigate()
+    // eslint-disable-next-line 
+    const [cookies, setCookie] = useCookies(['user'])
 
+    
     const _handlerClickProfile = () => {
-        navigation("/login")
+        if(cookies.user === undefined){
+            navigation("/login")
+        }else{
+            navigation("/profile")
+        }
+        
     }
     const _handlerClickHome = () => {
         navigation("/")
