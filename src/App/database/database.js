@@ -56,6 +56,13 @@ export async function updateHl(email, score){
     })
 }
 
+export async function updateGf(email, score){
+    const update = doc(db, "users",email)
+    await updateDoc(update, {
+        scoregf: score
+    })
+}
+
 export function registration(email, password, nickname, callback){
     createUserWithEmailAndPassword(auth, email, password).then(
         (userCredential) => {

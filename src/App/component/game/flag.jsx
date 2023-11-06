@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { states } from "../../database/database";
+import { states, updateGf } from "../../database/database";
 import { useState } from "react";
 import { useCookies } from "react-cookie";
 import { AnimatePresence, motion } from "framer-motion";
@@ -48,7 +48,7 @@ export default function Flag(){
         const bt = buttons.map((el,i)=>{
             return (
                 <div className="w-full flex justify-center items-center" key={i}>
-                    <button className="px-6 py-3 bg-blue-500 mt-4 text-xl font-semibold text-white rounded-full w-56 " onClick={()=>_handleClick(el.id)} >{el.stato}</button>
+                    <button className="px-6 py-3 bg-blue-500 mt-4  text-xl font-semibold text-white rounded-full w-56 " onClick={()=>_handleClick(el.id)} >{el.stato}</button>
                 </div>
             )
         })
@@ -68,6 +68,15 @@ export default function Flag(){
                 setRight(false)
             },1000)
         }else{
+            if(cookies.user !== undefined){
+                if(score > cookies.user.scoregf){
+                    let obj = {...cookies.user}
+                    obj.scoregf = score
+                    setCookies('user', obj)
+                    updateGf(cookies.user.email, score)
+                }
+            }
+            
             setScore(0)
             nav("/endgame/"+score)
         }
@@ -81,14 +90,14 @@ export default function Flag(){
         <div className="w-full bg-slate-700  " style={{height: window.innerHeight}} >
             <AnimatePresence initial={false} mode="wait" onExitComplete={()=>null}>
                 {right &&
-                    <div className="w-full absolute top-0 left-0 right-0 flex justify-center items-center " >
+                    <div className="w-full absolute bottom-5 left-0 right-0 flex justify-center items-center " >
                         <motion.div 
                         initial={{
                             opacity: 0,
-                            y: "-200px"
+                            y: "100px"
                         }}
                         transition={{
-                            duration: 0.5,
+                            duration: 0.3,
                         }}
                         animate={{
                             opacity: 1,
@@ -96,9 +105,9 @@ export default function Flag(){
                         }}
                         exit={{
                             opacity: 0,
-                            y: "-200px",
+                            y: "100px",
                             transition: {
-                                duration: 0.5
+                                duration: 0.3
                             }
                         }}
                         className=" bg-blue-500 mt-10 flex justify-center py-3 px-5" >
