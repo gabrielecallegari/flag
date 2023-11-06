@@ -16,7 +16,7 @@ export default function Hl(){
     // eslint-disable-next-line 
     const [cookies, setCookies] = useCookies(['user'])
     // eslint-disable-next-line
-    const [highScore, setHighScore] = useState( cookies===undefined? cookies.user.scorehl : 0 )
+    const [highScore, setHighScore] = useState( cookies.user===undefined? 0 : cookies.user.scorehl )
     const nav = useNavigate()
     
     
@@ -121,10 +121,7 @@ export default function Hl(){
                                 <motion.div
                                 initial={{y: "100px", opacity: 0}}
                                 transition={{
-                                    transition: {
-                                        duration: 0.3
-                                    }
-
+                                    duration: 0.3
                                 }}
                                 animate = {{opacity: 1,y: "0px",}}
                                 exit={{
