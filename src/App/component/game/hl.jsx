@@ -52,10 +52,8 @@ export default function Hl(){
                 if(cookies.user !== undefined){
                     console.log("qui");
                     if(score > cookies.user.scorehl){
-                        console.log("qui");
                         let obj = {...cookies.user}
                         obj.scorehl = score
-                        console.log(obj);
                         setCookies('user', obj)
                         updateHl(cookies.user.email, score)
                     }
