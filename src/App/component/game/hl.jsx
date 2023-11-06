@@ -16,7 +16,7 @@ export default function Hl(){
     // eslint-disable-next-line 
     const [cookies, setCookies] = useCookies(['user'])
     // eslint-disable-next-line
-    const [highScore, setHighScore] = useState(cookies.user.scorehl)
+    const [highScore, setHighScore] = useState( cookies===undefined? cookies.user.scorehl : 0 )
     const nav = useNavigate()
     
     
@@ -49,13 +49,16 @@ export default function Hl(){
             if(er === true){
                 nav("/endgame/"+score)
                 // eslint-disable-next-line
-                if(score > cookies.user.scorehl){
+                if(cookies.user !== undefined){
                     console.log("qui");
-                    let obj = {...cookies.user}
-                    obj.scorehl = score
-                    console.log(obj);
-                    setCookies('user', obj)
-                    updateHl(cookies.user.email, score)
+                    if(score > cookies.user.scorehl){
+                        console.log("qui");
+                        let obj = {...cookies.user}
+                        obj.scorehl = score
+                        console.log(obj);
+                        setCookies('user', obj)
+                        updateHl(cookies.user.email, score)
+                    }
                 }
             }
             st = stati
