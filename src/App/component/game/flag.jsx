@@ -4,59 +4,78 @@ import { states } from "../../database/database";
 import { useState } from "react";
 import { useCookies } from "react-cookie";
 import { AnimatePresence, motion } from "framer-motion";
+import { useEffect } from "react";
 
 export default function Flag(){
     const nav = useNavigate()
     const stati = states
     let st = stati
     const [state , setState] = useState(st[Math.floor(Math.random() * st.length)])
+    // eslint-disable-next-line
     const [cookies, setCookies] = useCookies(['user'])
     const [score, setScore] = useState(0)
+    // eslint-disable-next-line
     const [highScore, setHighScore] = useState( cookies.user===undefined? 0 : cookies.user.scoregf )
     const [right, setRight] = useState(false)
     st=st.filter( el => el.id !== state.id)
     
+    const [buttons, setButtons] = useState([])
+
+    useEffect(()=>{
+        getRandomItemsFromArray(3)
+        // eslint-disable-next-line
+    },[])
     
     
-    function getRandomItemsFromArray(numItems) {
+    function getRandomItemsFromArray(numItems, sl) {
        
         const randomItems = [];
         
         for (let i = 0; i < numItems; i++) {
             // Generate a random index within the remaining items in the array
-            const randomIndex = Math.floor(Math.random() * st.length);
+            const randomIndex = Math.floor(Math.random() * st.length)
         
             // Get the item at the random index and add it to the result array
-            randomItems.push(st.splice(randomIndex, 1)[0]);
+            randomItems.push(st.splice(randomIndex, 1)[0])
         }
-        randomItems.push(state)
+        randomItems.push(sl === undefined ? state : sl)
         
-        console.log(state);
-        return randomItems.sort(() => Math.random() - 0.5);
+        setButtons(randomItems.sort(() => Math.random() - 0.5))
     }
 
-    const [buttons, setButtons] = useState([])
-    useState(()=>{
-        console.log("USEEFFECT");
-        setButtons(getRandomItemsFromArray(3))
-    }, [score])
-
+    const Bottoni = ()=>{
+        
+        const bt = buttons.map((el,i)=>{
+            return (
+                <div className="w-full flex justify-center items-center" key={i}>
+                    <button className="px-6 py-3 bg-blue-500 mt-4 text-xl font-semibold text-white rounded-full w-56 " onClick={()=>_handleClick(el.id)} >{el.stato}</button>
+                </div>
+            )
+        })
+        return bt
+    }
+    
     const _handleClick = (val)=>{
-        setScore(old => old + 1)    
-        st = stati
-        setState(st[Math.floor(Math.random() * st.length)])
-        console.log(state);
-        st=st.filter( el => el.id !== state.id)
         if(val === state.id){
             setRight(true)
-            
+            st = stati
+            const sl = st[Math.floor(Math.random() * st.length)]
+            setState(sl)
+            st=st.filter( el => el.id !== state.id)
+            getRandomItemsFromArray(3,sl)
+            setScore(old => old + 1)
             setTimeout(()=>{
                 setRight(false)
             },1000)
         }else{
-            
+            setScore(0)
+            nav("/endgame/"+score)
         }
+        
+        
     }
+
+    
   
     return (
         <div className="w-full bg-slate-700  " style={{height: window.innerHeight}} >
@@ -102,13 +121,7 @@ export default function Flag(){
             </div>
             <div className="w-full mt-20 flex justify-center items-center flex-col">
                 <h2 className="font-semibold text-white text-2xl mb-5" >Di quale stato è questa bandiera?</h2>
-                {buttons.map((el)=>{
-                    return (
-                        <div className="w-full flex justify-center items-center" key={el.id}>
-                            <button className="px-6 py-3 bg-blue-500 mt-4 text-xl font-semibold text-white rounded-full w-56 " onClick={()=>_handleClick(el.id)} >{el.stato}</button>
-                        </div>
-                    )
-                })}
+                <Bottoni />
             </div>
         </div>
     )
